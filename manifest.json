@@ -12,13 +12,15 @@
 			"name": "Hired in the room",
 			"tooltip": "Get hired in the interview room. [NOTE: Dont stand up until 47 gets up by himself]",
 			"type": "select",
+			"enabledByDefault": true,
 			"contentFolders": ["content"]
 		},
 		{
 			"group": "Hired On the Spot",
 			"name": "Hired at the reception (Testing)",
-			"tooltip": "Get hired when approaching the receptionist at the reception desk. Does absolutely nothing",
+			"tooltip": "Get hired when approaching the receptionist at the reception desk. Does absolutely nothing at the moment",
 			"type": "select",
+			"enabledByDefault": false,
 			"contentFolders": ["content2"]
 		}
 	],
