@@ -6,4 +6,4 @@ Get instantly hired as the applicant.
 
 ---
 
-`Tumbler.NoInterview` v0.3.0, by Tumbler. This README was automatically generated from the mod's manifest.
+`Tumbler.NoInterview` v0.4.0, by Tumbler. This README was automatically generated from the mod's manifest.
