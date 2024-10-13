@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/atampy25/simple-mod-framework/main/Mod%20Manager/src/lib/manifest-schema.json",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"id": "Tumbler.NoInterview",
 	"name": "Hired On Sight",
 	"description": "Get instantly hired as the applicant.",
@@ -14,7 +14,6 @@
 			"type": "select",
 			"contentFolders": ["content"]
 		},
-
 		{
 			"group": "Hired On the Spot",
 			"name": "Hired at the reception (Testing)",
@@ -23,5 +22,6 @@
 			"contentFolders": ["content2"]
 		}
 	],
-	"frameworkVersion": "2.22.1"
+	"frameworkVersion": "2.33.20",
+	"updateCheck": "https://github.com/NeetBux-Hash/Hired-On-Sight/releases/latest/download/updates.json"
 }
