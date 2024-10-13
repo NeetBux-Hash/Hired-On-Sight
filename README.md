@@ -2,8 +2,8 @@
 
 Get instantly hired as the applicant.
 
-[Install](https://hitman-resources.netlify.app/smf-install-link/https://github.com/NeetBux-Hash/Hired-On-Sight/releases/latest/download/mod.framework.zip) | [Download](https://github.com/NeetBux-Hash/Hired-On-Sight/releases/latest/download/mod.framework.zip)
+[Install](https://hitman-resources.netlify.app/smf-install-link/https://github.com/NeetBux-Hash/Tumbler.Hired-On-Sight/releases/latest/download/mod.framework.zip) | [Download](https://github.com/NeetBux-Hash/Tumbler.Hired-On-Sight/releases/latest/download/mod.framework.zip)
 
 ---
 
-`Tumbler.NoInterview` v0.2.0, by Tumbler. This README was automatically generated from the mod's manifest.
+`Tumbler.NoInterview` v0.3.0, by Tumbler. This README was automatically generated from the mod's manifest.
