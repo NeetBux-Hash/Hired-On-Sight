@@ -1,9 +1,27 @@
 {
 	"$schema": "https://raw.githubusercontent.com/atampy25/simple-mod-framework/main/Mod%20Manager/src/lib/manifest-schema.json",
 	"version": "0.1.0",
-	"id": "YourPreferredAlias.AnIDForTheMod",
-	"name": "Test Mod",
-	"description": "A truly amazing mod",
-	"authors": ["Your Preferred Alias"],
-	"frameworkVersion": "2.25.1"
+	"id": "Tumbler.NoInterview",
+	"name": "Hired On Sight",
+	"description": "Get instantly hired as the applicant. [Note: Don't leave from your seat until 47 gets up by himself].",
+	"authors": ["Tumbler"],
+	"contentFolders": [],
+	"options": [
+		{
+			"group": "Hired On the Spot",
+			"name": "Hired in the room",
+			"tooltip": "Get hired in the interview room. [NOTE: Dont stand up until 47 gets up by himself]",
+			"type": "select",
+			"contentFolders": ["content"]
+		},
+
+		{
+			"group": "Hired On the Spot",
+			"name": "Hired at the reception",
+			"tooltip": "Get hired when approaching the receptionist at the reception desk.",
+			"type": "select",
+			"contentFolders": ["content2"]
+		}
+	],
+	"frameworkVersion": "2.22.1"
 }

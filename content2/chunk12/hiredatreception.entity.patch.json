@@ -1,0 +1,2122 @@
+{
+	"tempHash": "009FDC60393C0DA2",
+	"tbluHash": "00A8BF4B33B25673",
+	"patch": [
+		{
+			"SubEntityOperation": [
+				"b6a961b8cdf5d581",
+				{
+					"RemoveEventConnection": ["OnDone", "Start", "a3cf32261fb456aa"]
+				}
+			]
+		},
+		{
+			"SubEntityOperation": [
+				"b6a961b8cdf5d581",
+				{
+					"AddEventConnection": ["OnDone", "Start", "cafe1c5d334f24a1"]
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafea36f85a7a5e4",
+				{
+					"parent": "396ff8dc54d2ea9c",
+					"name": "dr331255_getthekeys",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33137_jobinterviewinvestorkeycard.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33137_jobinterviewinvestorkeycard.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"RECEPTIONIST06": {
+							"type": "SEntityTemplateReference",
+							"value": "4ada615ad7c4eb7b"
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "2a89a4725fdfba11",
+							"postInit": true
+						}
+					},
+					"events": {
+						"While": {
+							"Done": ["cafe1c5d334f24a1"],
+							"TransmitEvent": ["f066af8d10ee7159", "46b2c483c301a95e", "562f6003ad2146c2"],
+							"SetTrue": ["2d69fa7b46bc22cd", "02d9a4c61236251f", "c120a09f329704ac"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe1c5d334f24a1",
+				{
+					"parent": "396ff8dc54d2ea9c",
+					"name": "dr33125_GettheJob",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33134_jobinterviewinvestorjob.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33134_jobinterviewinvestorjob.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"RECEPTIONIST06": {
+							"type": "SEntityTemplateReference",
+							"value": "4ada615ad7c4eb7b"
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "2a89a4725fdfba11",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafea36f85a7a5e4"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe5a4963c9a289",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "StateControl",
+					"factory": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/statecontrol.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_States": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["cafe01c4cd77b52a", "cafec028ab9ec4d0", "cafeb8f056d01106"],
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed77a588dd142",
+				{
+					"parent": "cafe0723ed675574",
+					"name": "47 line started playing",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafe29068d48f3e5",
+								"externalScene": null,
+								"exposedEntity": "Line_02609024245f4e60929a51017995a32a"
+							},
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe10cee7ffc390",
+				{
+					"parent": "cafe0723ed675574",
+					"name": "ValueBool_Poll",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafed77a588dd142"
+						}
+					},
+					"events": {
+						"PollTrue": { "SetFalse": ["cafed24dc356db2f"] }
+					},
+					"outputCopying": {
+						"PollFalse": { "PollFalse": ["cafe0723ed675574"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe619acec8696f",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Second Question",
+					"factory": "[assembly:/_pro/design/logic.template?/state_get.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/state_get.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rState": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec028ab9ec4d0",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnTrue": { "Start": ["cafe4bc81661f84f"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe44b8caf31026",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33139_jobinterviewtellerkeycard",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33139_jobinterviewtellerkeycard.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33139_jobinterviewtellerkeycard.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"Done": ["cafe4a653b7c7dc7"],
+							"TransmitEvent": ["cafe4c409e601d8c"],
+							"SetTrue": ["cafe954f278d2182"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe01c4cd77b52a",
+				{
+					"parent": "cafe5a4963c9a289",
+					"name": "Question 1",
+					"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafedd6c9b6f5cab",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job applicant has Highest level access",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe460656a17a76",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "0",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe792bf8771bbd",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ValueInt_Set",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb39353f48694",
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe47f52d60b1e3",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33124_jobinterviewhrexplain",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33124_jobinterviewhrexplain.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33124_jobinterviewhrexplain.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafebaee763937a9"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe092e68b7a034",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Options Visible",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "1a26334bc2cb86d8"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe10f79544fe58",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "47 sat down",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aValues": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": [
+								{
+									"ref": "b372b7340aed16c7",
+									"externalScene": null,
+									"exposedEntity": "IsInUse"
+								}
+							],
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnTrue": { "SetTrue": ["cafe0723ed675574"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe9235b3c9bcec",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Roles",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeaaf11cd6e607",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "All Answers Correct",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rFirstValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb39353f48694",
+							"postInit": true
+						},
+						"m_rSecondValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeacdca2a202a8",
+							"postInit": true
+						}
+					},
+					"events": {
+						"GetTrue": { "Start": ["cafe4fc3fff7e69b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe19a90158f505",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ValueBool_Basic",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeed4c2154c891",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33130_jobinterviewcard3",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33130_jobinterviewcard3.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33130_jobinterviewcard3.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"In": ["cafe672bf970705e"],
+							"SetFalse": ["cafec82558c24b9c"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe099dab54aacf",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Disable Option 2",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "b969ca538567beb9"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafead9f7b94a561",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "AOL_dr33123_jobinterviewhrgreet_hrfem06_001",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/actoroneliner.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/actoroneliner.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_pAudioEvent": {
+							"type": "ZRuntimeResourceID",
+							"value": {
+								"resource": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33123_jobinterviewhrgreet.sweetdialog?/dr33123_jobinterviewhrgreet_hrfem06_001.sweetdialogitem].pc_dialogevent",
+								"flag": "5F"
+							}
+						},
+						"m_rActor": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafebaee763937a9",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33125_jobinterviewpick1st",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33125_jobinterviewpick1st.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33125_jobinterviewpick1st.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "SetTrue": ["cafe092e68b7a034"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe703df2cff4f0",
+				{
+					"parent": "cafe2328396437fe",
+					"name": "TimerConditional",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 1000 },
+						"m_bRepeatWhileTrue": {
+							"type": "bool",
+							"value": true
+						},
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe1b23c05f7b01",
+							"postInit": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafe8efa0449ab46"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeb40abc025236",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "1",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nValue": { "type": "int32", "value": 1 }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef738a3fee54b",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33137_jobinterviewinvestorkeycard",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33137_jobinterviewinvestorkeycard.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33137_jobinterviewinvestorkeycard.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						},
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"Done": ["cafe4a653b7c7dc7"],
+							"TransmitEvent": ["cafe9421b4e905b3", "cafe6e21d0a126b7", "cafe4c409e601d8c"],
+							"SetTrue": ["cafedd6c9b6f5cab", "cafe03220efbf905", "cafe954f278d2182"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe1b23c05f7b01",
+				{
+					"parent": "cafe2328396437fe",
+					"name": "Option 3 chosen",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe80cef51d05d9",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Dialogue started",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafefcc1564ee039",
+								"externalScene": null,
+								"exposedEntity": "Line_9eb533b314164f1c965d074a846fbf75"
+							},
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe9bab9f8cc681",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "No correct answers 1",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe80cef51d05d9"
+						}
+					},
+					"events": {
+						"PollTrue": {
+							"TransmitEvent": ["cafe4c409e601d8c"],
+							"SetTrue": ["cafe954f278d2182"],
+							"Done": ["cafe4a653b7c7dc7"]
+						},
+						"PollFalse": { "Poll": ["cafef02ac78f792c"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeb8f056d01106",
+				{
+					"parent": "cafe5a4963c9a289",
+					"name": "Question 3",
+					"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4adf2c9a84ee",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Is This Answer to Question 3",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb8f056d01106"
+						}
+					},
+					"events": {
+						"PollTrue": { "Inc": ["cafe169abe75880b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe29068d48f3e5",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33123_jobinterviewhrgreet",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33123_jobinterviewhrgreet.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33123_jobinterviewhrgreet.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"Conditions_02609024245f4e60929a51017995a32a": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["cafe19a90158f505"]
+						},
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafe47f52d60b1e3"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafea63b98df0b8a",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "DialogLineCondition 3",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafeed4c2154c891",
+								"externalScene": null,
+								"exposedEntity": "Line_3c1972a4151c4f76876ce85319d2d4a3"
+							}
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"In": ["cafed3b8a110642c"],
+							"Poll": ["cafe4adf2c9a84ee"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe169abe75880b",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Correct Answers",
+					"factory": "[modules:/zcounterentity.class].pc_entitytype",
+					"blueprint": "[modules:/zcounterentity.class].pc_entityblueprint",
+					"events": {
+						"Count": { "SetValue": ["cafe792bf8771bbd"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafec8502546a667",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "DramaSituationProxy",
+					"factory": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituationproxy.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituationproxy.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rOriginalDrama": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe3cd3b4ffffc9",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnStart": { "Start": ["cafe29068d48f3e5"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe03220efbf905",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job applicant has Middle level access",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeb39353f48694",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ValueInt",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeeef98926373e",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33138_jobinterviewaccountkeycard",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33138_jobinterviewaccountkeycard.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33138_jobinterviewaccountkeycard.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"Done": ["cafe4a653b7c7dc7"],
+							"TransmitEvent": ["cafe6e21d0a126b7", "cafe4c409e601d8c"],
+							"SetTrue": ["cafe03220efbf905", "cafe954f278d2182"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe6e21d0a126b7",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job interview outcome 02 _ Accountant_Enable tresspass zone",
+					"factory": "[modules:/zeventtransmitterentity_void.class].pc_entitytype",
+					"blueprint": "[modules:/zeventtransmitterentity_void.class].pc_entityblueprint",
+					"properties": {
+						"m_Receivers": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["e140f31a489b58fa"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe62097571181f",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Dialogue started 3",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafe4fc3fff7e69b",
+								"externalScene": null,
+								"exposedEntity": "Line_bb3534e4dc164bf994c89456f923cde5"
+							},
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef1d8d19e2061",
+				{
+					"parent": "cafe2328396437fe",
+					"name": "First line started playing",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafeed4c2154c891",
+								"externalScene": null,
+								"exposedEntity": "Line_3c1972a4151c4f76876ce85319d2d4a3"
+							}
+						},
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe8efa0449ab46",
+				{
+					"parent": "cafe2328396437fe",
+					"name": "ValueBool_Poll",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafef1d8d19e2061"
+						}
+					},
+					"events": {
+						"PollTrue": { "SetFalse": ["cafe1b23c05f7b01"] }
+					},
+					"outputCopying": {
+						"PollFalse": { "PollFalse": ["cafe2328396437fe"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed24dc356db2f",
+				{
+					"parent": "cafe0723ed675574",
+					"name": "47 sat down",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe0723ed675574",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Make sure Dialogue resumes at 47s spot",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"events": {
+						"PollFalse": { "SetFalse": ["cafe19a90158f505"] },
+						"TimeOut": { "SetTrue": ["cafe19a90158f505"] }
+					},
+					"inputCopying": {
+						"SetTrue": { "SetTrue": ["cafed24dc356db2f"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafede7e9ea64f2c",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Is This Answer to Question 1",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe01c4cd77b52a"
+						}
+					},
+					"events": {
+						"PollTrue": { "Inc": ["cafe169abe75880b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafea9d0299366d2",
+				{
+					"parent": "cafeeb573b840805",
+					"name": "StateControlProxy",
+					"factory": "[assembly:/_pro/design/logic.template?/statecontrolproxy.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/statecontrolproxy.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeeb573b840805",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Options Visible 2",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "1a26334bc2cb86d8"
+						}
+					},
+					"inputCopying": {
+						"SetTrue": { "NextState": ["cafea9d0299366d2"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe73dfcde2298f",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "TimerConditional 2",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 60000 },
+						"m_bResetWhenStopped": {
+							"type": "bool",
+							"value": true
+						},
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe865e2a335023",
+							"postInit": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafef8851ba60231"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4fc3fff7e69b",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33134_jobinterviewinvestorjob",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33134_jobinterviewinvestorjob.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33134_jobinterviewinvestorjob.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafef738a3fee54b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeb36fa89ca5ec",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "All correct answers",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe62097571181f"
+						}
+					},
+					"events": {
+						"PollTrue": {
+							"TransmitEvent": ["cafe4c409e601d8c", "cafe6e21d0a126b7", "cafe9421b4e905b3"],
+							"SetTrue": ["cafe954f278d2182", "cafe03220efbf905", "cafedd6c9b6f5cab"],
+							"Done": ["cafe4a653b7c7dc7"],
+							"SpawnItem": ["cafe8f1dad21ba72"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe0fbab7e67f71",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33135_jobinterviewaccountingjob",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33135_jobinterviewaccountingjob.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33135_jobinterviewaccountingjob.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9",
+							"postInit": true
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafeeef98926373e"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4bc81661f84f",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33126_jobinterviewpick2nd",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33126_jobinterviewpick2nd.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33126_jobinterviewpick2nd.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": { "SetTrue": ["cafe092e68b7a034"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafec965bd5466d9",
+				{
+					"parent": "cafe9235b3c9bcec",
+					"name": "HR F",
+					"factory": "[assembly:/_pro/design/actor/dramasystem2.template?/role.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/dramasystem2.template?/role.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rActorProvider": {
+							"type": "SEntityTemplateReference",
+							"value": "279820eeb96c67b4"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe8ac60eeb2153",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "InvertedCondition",
+					"factory": "[modules:/zinvertedcondition.class].pc_entitytype",
+					"blueprint": "[modules:/zinvertedcondition.class].pc_entityblueprint",
+					"properties": {
+						"m_rCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb042222a0a3d",
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe645f99cb4170",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33144_jobinterview_pleasechoose",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33144_jobinterview_pleasechoose.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33144_jobinterview_pleasechoose.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791",
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe77e766a22314",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Third Question",
+					"factory": "[assembly:/_pro/design/logic.template?/state_get.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/state_get.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rState": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb8f056d01106"
+						}
+					},
+					"events": {
+						"OnTrue": { "Start": ["cafe24ca7bdbeb1b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef6bd782d04fc",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Disable Option 1",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "3f4eca8900b386f1"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe10237a144fce",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "No Correct Answers",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rFirstValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb39353f48694"
+						},
+						"m_rSecondValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe460656a17a76"
+						}
+					},
+					"events": {
+						"GetTrue": { "Start": ["cafefcc1564ee039"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe8f1dad21ba72",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ItemSpawner",
+					"factory": "[modules:/zitemspawner.class].pc_entitytype",
+					"blueprint": "[modules:/zitemspawner.class].pc_entityblueprint",
+					"properties": {
+						"m_mTransform": {
+							"type": "SMatrix43",
+							"value": {
+								"rotation": {
+									"x": -0.0,
+									"y": 0.0,
+									"z": -141.40493971438326
+								},
+								"position": {
+									"x": -34.18859100341797,
+									"y": 72.82322692871094,
+									"z": 10.0
+								}
+							}
+						},
+						"m_rMainItemKey": {
+							"type": "SEntityTemplateReference",
+							"value": "1400aa49fa48e98d"
+						},
+						"m_bSpawnOnStart": {
+							"type": "bool",
+							"value": false
+						},
+						"m_eidParent": {
+							"type": "SEntityTemplateReference",
+							"value": "fffffffffffffffe"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe95824f7a8cc9",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33128_jobinterviewcard1",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33128_jobinterviewcard1.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33128_jobinterviewcard1.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9"
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5",
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"In": ["cafe672bf970705e"],
+							"SetFalse": ["cafef6bd782d04fc"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4483405683e5",
+				{
+					"parent": "cafe9235b3c9bcec",
+					"name": "HeroStandIn",
+					"factory": "[modules:/zherostandin.class].pc_entitytype",
+					"blueprint": "[modules:/zherostandin.class].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe3d18da99434d",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Dialogue started 2",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafe0fbab7e67f71",
+								"externalScene": null,
+								"exposedEntity": "Line_047367d8d3784b108cc57a235875bfc4"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed3b8a110642c",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "47 Started Answering",
+					"factory": "[modules:/zsignalpipeentity_void.class].pc_entitytype",
+					"blueprint": "[modules:/zsignalpipeentity_void.class].pc_entityblueprint",
+					"events": {
+						"Out": { "SetFalse": ["cafeeb573b840805"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe679e4fa908d1",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "TimerConditional",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 15000 },
+						"m_bResetWhenStopped": {
+							"type": "bool",
+							"value": true
+						},
+						"m_bRepeatWhileTrue": {
+							"type": "bool",
+							"value": true
+						},
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe865e2a335023",
+							"postInit": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafe4ded5ceba620"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe53c630ae36a8",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "DialogLineCondition 1",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafe95824f7a8cc9",
+								"externalScene": null,
+								"exposedEntity": "Line_cd11457ba5c440d8813e5052d867a07b"
+							}
+						},
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"In": ["cafed3b8a110642c"],
+							"Poll": ["cafede7e9ea64f2c"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4c409e601d8c",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job interview outcome 01 _ Teller_Enable tresspass zone",
+					"factory": "[modules:/zeventtransmitterentity_void.class].pc_entitytype",
+					"blueprint": "[modules:/zeventtransmitterentity_void.class].pc_entityblueprint",
+					"properties": {
+						"m_Receivers": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["fc6870f6e737f27c"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe363479e6c820",
+				{
+					"parent": "cafebd0989c4cf8b",
+					"name": "Option 1 chosen",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafebd0989c4cf8b",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Make sure option 1 plays on resume",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"events": {
+						"PollFalse": { "Start": ["cafe95824f7a8cc9"] }
+					},
+					"inputCopying": {
+						"SetTrue": { "SetTrue": ["cafe363479e6c820"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafea00b70204cad",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33129_jobinterviewcard2",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33129_jobinterviewcard2.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33129_jobinterviewcard2.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5"
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9"
+						}
+					},
+					"events": {
+						"OnDone": {
+							"In": ["cafe672bf970705e"],
+							"SetFalse": ["cafe099dab54aacf"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed7c7119e3b06",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "One Correct Answers",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint_comparator_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rFirstValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb39353f48694"
+						},
+						"m_rSecondValueInt": {
+							"type": "SEntityTemplateReference",
+							"value": "cafeb40abc025236"
+						}
+					},
+					"events": {
+						"GetTrue": { "Start": ["cafe0fbab7e67f71"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafec028ab9ec4d0",
+				{
+					"parent": "cafe5a4963c9a289",
+					"name": "Question 2",
+					"factory": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/state.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeacdca2a202a8",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "3",
+					"factory": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valueint.template?/valueint.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nValue": { "type": "int32", "value": 3 }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe954f278d2182",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job applicant has lowest level access",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe0cf9b068dba6",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Interview is running",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aValues": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": [
+								{
+									"ref": "cafe3cd3b4ffffc9",
+									"externalScene": null,
+									"exposedEntity": "Playing"
+								}
+							],
+							"postInit": true
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4ded5ceba620",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ValueBool_Poll",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe0cf9b068dba6"
+						}
+					},
+					"events": {
+						"PollTrue": { "Start": ["cafe645f99cb4170"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe7c6cbbd951bb",
+				{
+					"parent": "cafebd0989c4cf8b",
+					"name": "First line started playing",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafe95824f7a8cc9",
+								"externalScene": null,
+								"exposedEntity": "Line_cd11457ba5c440d8813e5052d867a07b"
+							}
+						},
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed01e0768ba40",
+				{
+					"parent": "cafebd0989c4cf8b",
+					"name": "ValueBool_Poll",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe7c6cbbd951bb"
+						}
+					},
+					"events": {
+						"PollTrue": { "SetFalse": ["cafe363479e6c820"] }
+					},
+					"outputCopying": {
+						"PollFalse": { "PollFalse": ["cafebd0989c4cf8b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe628e5ebde442",
+				{
+					"parent": "cafed3a1afbf9c47",
+					"name": "Option 2 chosen",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_basic.entitytemplate].pc_entityblueprint"
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafed3a1afbf9c47",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Make sure option 2 plays on resume",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"events": {
+						"PollFalse": { "Start": ["cafea00b70204cad"] }
+					},
+					"inputCopying": {
+						"SetTrue": { "SetTrue": ["cafe628e5ebde442"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe9d6d46a03791",
+				{
+					"parent": "cafe9235b3c9bcec",
+					"name": "HR M",
+					"factory": "[assembly:/_pro/design/actor/dramasystem2.template?/role.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/dramasystem2.template?/role.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rActorProvider": {
+							"type": "SEntityTemplateReference",
+							"value": "e5c6c766cf32b6df"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe2328396437fe",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Make sure option 3 plays on resume",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"events": {
+						"PollFalse": { "Start": ["cafeed4c2154c891"] }
+					},
+					"inputCopying": {
+						"SetTrue": { "SetTrue": ["cafe1b23c05f7b01"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe3cd3b4ffffc9",
+				{
+					"parent": "396ff8dc54d2ea9c",
+					"name": "Interview",
+					"factory": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aRoles": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["cafec965bd5466d9", "cafe9d6d46a03791"]
+						},
+						"m_nBasePriority": {
+							"type": "int32",
+							"value": 10
+						},
+						"m_rHeroRole": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5"
+						},
+						"m_bTerminateOnDone": {
+							"type": "bool",
+							"value": true
+						},
+						"m_aHigherPriority": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["3d1d427b4c4af187"]
+						},
+						"m_aEnableConditions": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["ea4550fb0e916b9c", "1224c92d51a82e67"],
+							"postInit": true
+						}
+					},
+					"events": {
+						"OnDone": {
+							"SetFalse": ["802a70ee0b3dfe1c"],
+							"Leave": ["b372b7340aed16c7"],
+							"SetTrue": ["974e8deade0c683f"]
+						},
+						"HitmanDoesntPickACardInTime": {
+							"SetTrue": ["e345a1c8e6132917", "974e8deade0c683f"]
+						},
+						"OnTrue": { "SetTrue": ["0025012f935e1a52"] }
+					},
+					"inputCopying": {
+						"PleaseSitDown": { "Start": ["cafead9f7b94a561"] },
+						"Option1": { "SetTrue": ["cafebd0989c4cf8b"] },
+						"Option2": { "SetTrue": ["cafed3a1afbf9c47"] },
+						"Option3": { "SetTrue": ["cafe2328396437fe"] },
+						"SkipFinalDialogue_OutcomePolling": {
+							"Poll": ["cafe9bab9f8cc681"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafeb042222a0a3d",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "No Options Left",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aValues": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["3f4eca8900b386f1", "b969ca538567beb9", "369cd6770b8f9234"]
+						},
+						"m_eEvaluation": {
+							"type": "ZValueBool_Operation_Signal.EEvaluationType",
+							"value": "NONE"
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"Get": ["cafe10237a144fce", "cafed7c7119e3b06", "cafeaaf11cd6e607"],
+							"SetTrue": ["cafeeb573b840805"]
+						}
+					},
+					"outputCopying": {
+						"OnTrue": { "OnTrue": ["cafe3cd3b4ffffc9"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe241cca9c0395",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Is This Answer to Question 2",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec028ab9ec4d0"
+						}
+					},
+					"events": {
+						"PollTrue": { "Inc": ["cafe169abe75880b"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe9421b4e905b3",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Job interview outcome 03 _ InvestBanker_Enable tresspass zone",
+					"factory": "[modules:/zeventtransmitterentity_void.class].pc_entitytype",
+					"blueprint": "[modules:/zeventtransmitterentity_void.class].pc_entityblueprint",
+					"properties": {
+						"m_Receivers": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["20a711c3140401a1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe672bf970705e",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "47 Done Answering",
+					"factory": "[modules:/zsignalpipeentity_void.class].pc_entitytype",
+					"blueprint": "[modules:/zsignalpipeentity_void.class].pc_entityblueprint",
+					"events": {
+						"Out": { "NextState": ["cafe5a4963c9a289"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafec82558c24b9c",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Disable Option 3",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_set.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "369cd6770b8f9234"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4b2003a6711e",
+				{
+					"parent": "cafed3a1afbf9c47",
+					"name": "TimerConditional",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 1000 },
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe628e5ebde442"
+						},
+						"m_bRepeatWhileTrue": {
+							"type": "bool",
+							"value": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafe1863802775a6"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafee938bf512f60",
+				{
+					"parent": "cafe0723ed675574",
+					"name": "TimerConditional",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 1000 },
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafed24dc356db2f"
+						},
+						"m_bRepeatWhileTrue": {
+							"type": "bool",
+							"value": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafe10cee7ffc390"] }
+					},
+					"outputCopying": {
+						"TimeOut": { "TimeOut": ["cafe0723ed675574"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef02ac78f792c",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "One correct answer",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe3d18da99434d"
+						}
+					},
+					"events": {
+						"PollTrue": {
+							"TransmitEvent": ["cafe4c409e601d8c", "cafe6e21d0a126b7"],
+							"SetTrue": ["cafe954f278d2182", "cafe03220efbf905"],
+							"Done": ["cafe4a653b7c7dc7"]
+						},
+						"PollFalse": { "Poll": ["cafeb36fa89ca5ec"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafef8851ba60231",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "ValueBool_Poll_01",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe0cf9b068dba6"
+						}
+					},
+					"outputCopying": {
+						"PollTrue": {
+							"HitmanDoesntPickACardInTime": ["cafe3cd3b4ffffc9"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafea85237826b48",
+				{
+					"parent": "cafe4a653b7c7dc7",
+					"name": "DramaSituationProxy 2",
+					"factory": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituationproxy.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/dramasystem2.template?/dramasituationproxy.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rOriginalDrama": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe3cd3b4ffffc9"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe64016aaa81e9",
+				{
+					"parent": "cafed3a1afbf9c47",
+					"name": "First line started playing",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafea00b70204cad",
+								"externalScene": null,
+								"exposedEntity": "Line_f6240cb4e78347ba9f2cd709123de80e"
+							}
+						},
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe1863802775a6",
+				{
+					"parent": "cafed3a1afbf9c47",
+					"name": "ValueBool_Poll",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_poll.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_rValueEntity": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe64016aaa81e9"
+						}
+					},
+					"events": {
+						"PollTrue": { "SetFalse": ["cafe628e5ebde442"] }
+					},
+					"outputCopying": {
+						"PollFalse": { "PollFalse": ["cafed3a1afbf9c47"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafecfe5e986d1fa",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "DialogLineCondition 2",
+					"factory": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/actor/spsystem.template?/dialoglinecondition.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_eState": {
+							"type": "ZCharacterSpeakCondition.EState",
+							"value": "Started"
+						},
+						"m_rTarget": {
+							"type": "SEntityTemplateReference",
+							"value": {
+								"ref": "cafea00b70204cad",
+								"externalScene": null,
+								"exposedEntity": "Line_f6240cb4e78347ba9f2cd709123de80e"
+							}
+						}
+					},
+					"events": {
+						"OnTrue": {
+							"In": ["cafed3b8a110642c"],
+							"Poll": ["cafe241cca9c0395"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe4a653b7c7dc7",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Done",
+					"factory": "[modules:/zentity.class].pc_entitytype",
+					"blueprint": "[modules:/zentity.class].pc_entityblueprint",
+					"inputCopying": {
+						"Done": { "Done": ["cafea85237826b48"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafecd4cf43b6cdd",
+				{
+					"parent": "cafebd0989c4cf8b",
+					"name": "TimerConditional",
+					"factory": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic.template?/timerconditional.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_nInterval": { "type": "int32", "value": 1000 },
+						"m_pCondition": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe363479e6c820"
+						},
+						"m_bRepeatWhileTrue": {
+							"type": "bool",
+							"value": true
+						}
+					},
+					"events": {
+						"TimeOut": { "Poll": ["cafed01e0768ba40"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafefcc1564ee039",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33136_jobinterviewtellerjob",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33136_jobinterviewtellerjob.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33136_jobinterviewtellerjob.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791"
+						},
+						"HRFEM06": {
+							"type": "SEntityTemplateReference",
+							"value": "cafec965bd5466d9"
+						},
+						"47": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe4483405683e5"
+						}
+					},
+					"events": {
+						"OnDone": { "Start": ["cafe44b8caf31026"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe24ca7bdbeb1b",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "dr33127_jobinterviewpick3rd",
+					"factory": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33127_jobinterviewpick3rd.sweetdialog].pc_entitytype",
+					"blueprint": "[assembly:/localization/hitman6/conversations/greedy/33000_raccoon/33000_story/dr33127_jobinterviewpick3rd.sweetdialog].pc_entityblueprint",
+					"properties": {
+						"HRMALE08": {
+							"type": "SEntityTemplateReference",
+							"value": "cafe9d6d46a03791"
+						}
+					},
+					"events": {
+						"OnDone": { "SetTrue": ["cafe092e68b7a034"] }
+					}
+				}
+			]
+		},
+		{
+			"AddEntity": [
+				"cafe865e2a335023",
+				{
+					"parent": "cafe3cd3b4ffffc9",
+					"name": "Card options available",
+					"factory": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entitytype",
+					"blueprint": "[assembly:/_pro/design/logic/valuebool.template?/valuebool_operation.entitytemplate].pc_entityblueprint",
+					"properties": {
+						"m_aValues": {
+							"type": "TArray<SEntityTemplateReference>",
+							"value": ["1a26334bc2cb86d8", "cafe8ac60eeb2153"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"patchVersion": 6
+}
