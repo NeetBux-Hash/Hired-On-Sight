@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"id": "Tumbler.NoInterview",
 	"name": "Hired On Sight",
-	"description": "Get instantly hired as the applicant. [Note: Don't leave from your seat until 47 gets up by himself].",
+	"description": "Get instantly hired as the applicant.",
 	"authors": ["Tumbler"],
 	"contentFolders": [],
 	"options": [
@@ -17,8 +17,8 @@
 
 		{
 			"group": "Hired On the Spot",
-			"name": "Hired at the reception",
-			"tooltip": "Get hired when approaching the receptionist at the reception desk.",
+			"name": "Hired at the reception (Testing)",
+			"tooltip": "Get hired when approaching the receptionist at the reception desk. Does absolutely nothing",
 			"type": "select",
 			"contentFolders": ["content2"]
 		}
