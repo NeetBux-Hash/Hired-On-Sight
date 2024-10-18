@@ -1,0 +1,4 @@
+8e5bc7db06b369d6 Interview entity
+35320854bfb27d29 Reception entity
+e81f715a24f7dda7 The logic bool that enables the option to leave
+a63d475f696fc828 47 sat down bool
