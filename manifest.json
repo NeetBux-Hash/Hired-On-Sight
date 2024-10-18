@@ -7,6 +7,13 @@
 	"authors": ["Tumbler"],
 	"contentFolders": ["content"],
 	"options": [],
+	"localisationOverrides": {
+		"00988C83EC150C7C": {
+			"xx": {
+				"FB9404CA": "Get the bag"
+			}
+		}
+	},
 	"frameworkVersion": "2.33.20",
 	"updateCheck": "https://github.com/NeetBux-Hash/Tumbler.Hired-On-Sight/releases/latest/download/updates.json"
 }
