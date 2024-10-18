@@ -6,7 +6,6 @@
 	"description": "Get instantly hired as the applicant.",
 	"authors": ["Tumbler"],
 	"contentFolders": ["content"],
-	"options": [],
 	"frameworkVersion": "2.33.20",
 	"updateCheck": "https://github.com/NeetBux-Hash/Tumbler.Hired-On-Sight/releases/latest/download/updates.json"
 }
